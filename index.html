@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBMC GH Rainbow Catering Club</title>
+
+     <!-- Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Clarity+City:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- PyScript -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.3.1/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2024.3.1/core.js"></script>
+</head>
+<body>
+    <section class="hero">
+    <div class="checkerboard-pattern"></div>
+    <div class="position-relative">
+        <h1>The <em>Rainbow</em> Catering Club</h1>
+        <p class="lede"> Type your name below to see if you are on the list!</p>
+    </div>
+    </section>
+    <form>
+        <input type="text" id="fname" placeholder="Enter your first name">
+        <input type="text" id="lname" placeholder="Enter your last name">
+        <input type="button" py-click="get_name"value="Search">
+    </form>
+    <div id="div1"></div>
+    <py-script src="main.py"></py-script>
+</body>
+</html>

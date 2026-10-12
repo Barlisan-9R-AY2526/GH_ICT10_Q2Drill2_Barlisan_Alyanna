@@ -1,0 +1,287 @@
+/* ==========================================================
+   OBMC GH Rainbow Catering Club
+   Palette: cream, pastel pink, rose pink, warm brown, chocolate
+   ========================================================== */
+
+:root {
+  --cream: #F6F3EB;
+  --pastel-pink: #EBA3CD;
+  --rose-pink: #F189C1;
+  --warm-brown: #91573D;
+  --chocolate: #502A18;
+
+  --font-display: "Abril Fatface", Georgia, "Times New Roman", serif;
+  --font-body: "Clarity City", "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+
+  --content-width: 44rem;
+}
+
+/* ---------- Base ---------- */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 0 0 4rem;
+  background-color: var(--cream);
+  color: var(--chocolate);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  /* Five-band stripe across the top, one band per palette color */
+  background-image: linear-gradient(
+    to right,
+    var(--cream) 0 20%,
+    var(--pastel-pink) 20% 40%,
+    var(--rose-pink) 40% 60%,
+    var(--warm-brown) 60% 80%,
+    var(--chocolate) 80% 100%
+  );
+  background-size: 100% 12px;
+  background-repeat: no-repeat;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: var(--chocolate);
+  line-height: 1.1;
+}
+
+a {
+  color: var(--warm-brown);
+}
+
+a:hover {
+  color: var(--chocolate);
+}
+
+::selection {
+  background: var(--pastel-pink);
+  color: var(--chocolate);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: calc(3.5rem + 12px) 1.25rem 3.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--warm-brown);
+}
+
+/* Checkerboard of cream and pastel pink squares, fading out toward the bottom */
+.checkerboard-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: conic-gradient(
+    var(--pastel-pink) 25%,
+    var(--cream) 0 50%,
+    var(--pastel-pink) 0 75%,
+    var(--cream) 0
+  );
+  background-size: 56px 56px;
+  -webkit-mask-image: linear-gradient(to bottom, #000 30%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 30%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Text sits on a cream card so it stays readable over the pattern */
+.hero > .position-relative {
+  z-index: 1;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  background-color: var(--cream);
+  border: 2px solid var(--warm-brown);
+  border-radius: 1rem;
+  box-shadow: 6px 6px 0 var(--rose-pink);
+}
+
+.hero h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(2.25rem, 7vw, 4rem);
+  letter-spacing: 0.01em;
+}
+
+/* Abril Fatface has no italic, so the emphasized word is a highlight instead */
+.hero h1 em {
+  font-style: normal;
+  padding: 0 0.2em;
+  background-color: var(--pastel-pink);
+  border-radius: 0.2em;
+}
+
+.lede {
+  max-width: 34rem;
+  margin: 0 auto;
+  font-size: 1.125rem;
+  color: var(--warm-brown);
+}
+
+/* ---------- Search form ---------- */
+form,
+#div1 {
+  width: min(var(--content-width), calc(100% - 2.5rem));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: #fff;
+  background-color: color-mix(in srgb, var(--cream) 40%, white);
+  border: 2px solid var(--warm-brown);
+  border-radius: 1rem;
+  box-shadow: 6px 6px 0 var(--pastel-pink);
+}
+
+input[type="text"] {
+  flex: 1 1 12rem;
+  min-width: 0;
+  padding: 0.7rem 1rem;
+  font: inherit;
+  color: var(--chocolate);
+  background-color: var(--cream);
+  border: 2px solid var(--warm-brown);
+  border-radius: 0.6rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+input[type="text"]::placeholder {
+  color: var(--warm-brown);
+  opacity: 0.75;
+}
+
+input[type="text"]:hover {
+  border-color: var(--chocolate);
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--rose-pink);
+  box-shadow: 0 0 0 4px var(--pastel-pink);
+}
+
+input[type="button"] {
+  flex: 0 0 auto;
+  padding: 0.7rem 1.75rem;
+  font: inherit;
+  font-weight: 700;
+  color: var(--chocolate);
+  background-color: var(--rose-pink);
+  border: 2px solid var(--chocolate);
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.1s ease;
+}
+
+input[type="button"]:hover {
+  background-color: var(--chocolate);
+  color: var(--cream);
+}
+
+input[type="button"]:active {
+  transform: translateY(1px);
+}
+
+input[type="button"]:focus-visible {
+  outline: 3px solid var(--warm-brown);
+  outline-offset: 3px;
+}
+
+/* ---------- Results ---------- */
+#div1 {
+  color: var(--chocolate);
+}
+
+#div1:empty {
+  display: none;
+}
+
+#div1 > * {
+  margin-bottom: 1rem;
+}
+
+#div1 table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  background-color: color-mix(in srgb, var(--cream) 40%, white);
+  border: 2px solid var(--warm-brown);
+}
+
+#div1 th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  color: var(--cream);
+  background-color: var(--warm-brown);
+}
+
+#div1 td {
+  padding: 0.75rem 1rem;
+  border-top: 1px solid var(--pastel-pink);
+}
+
+#div1 tr:nth-child(even) td {
+  background-color: var(--cream);
+}
+
+#div1 tr:hover td {
+  background-color: var(--pastel-pink);
+}
+
+/* ---------- PyScript output ---------- */
+py-script {
+  display: none;
+}
+
+.py-error {
+  width: min(var(--content-width), calc(100% - 2.5rem));
+  margin: 1rem auto;
+  padding: 1rem;
+  color: var(--chocolate);
+  background-color: var(--pastel-pink);
+  border-left: 6px solid var(--chocolate);
+  border-radius: 0.4rem;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 480px) {
+  .hero {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .hero > .position-relative {
+    padding: 1.5rem 1rem;
+  }
+
+  form {
+    padding: 1rem;
+  }
+
+  input[type="button"] {
+    width: 100%;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
